@@ -21,7 +21,10 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <div class="profile__image profile__image_default"></div>
+          <div
+            class="profile__image"
+            style="background-image: url('./src/images/avatar.jpg')"
+          ></div>
           <div class="profile__info">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
             <button class="profile__edit-button" type="button"></button>
@@ -49,7 +52,11 @@
                 id="user-name"
                 class="popup__input popup__input_type_name"
                 placeholder="Имя"
+                minlength="2"
+                maxlength="40"
+                pattern="^[a-zA-Zа-яА-ЯёЁ\-\s]+$"
                 data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+                required
               />
               <span class="popup__error" id="user-name-error"></span>
             </label>
@@ -60,14 +67,13 @@
                 id="user-description"
                 class="popup__input popup__input_type_description"
                 placeholder="Занятие"
+                minlength="2"
+                maxlength="200"
+                required
               />
               <span class="popup__error" id="user-description-error"></span>
             </label>
-            <button
-              type="submit"
-              class="button popup__button popup__button_disabled"
-              disabled
-            >
+            <button type="submit" class="button popup__button popup__button_disabled" disabled>
               Сохранить
             </button>
           </form>
@@ -86,7 +92,11 @@
                 id="place-name"
                 class="popup__input popup__input_type_card-name"
                 placeholder="Название"
+                minlength="2"
+                maxlength="30"
+                pattern="^[a-zA-Zа-яА-ЯёЁ\-\s]+$"
                 data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+                required
               />
               <span class="popup__error" id="place-name-error"></span>
             </label>
@@ -97,14 +107,11 @@
                 id="place-link"
                 class="popup__input popup__input_type_url"
                 placeholder="Ссылка на картинку"
+                required
               />
               <span class="popup__error" id="place-link-error"></span>
             </label>
-            <button
-              type="submit"
-              class="button popup__button popup__button_disabled"
-              disabled
-            >
+            <button type="submit" class="button popup__button popup__button_disabled" disabled>
               Создать
             </button>
           </form>
@@ -146,14 +153,11 @@
                 id="user-avatar"
                 class="popup__input popup__input_type_avatar"
                 placeholder="Ссылка на изображение"
+                required
               />
               <span class="popup__error" id="user-avatar-error"></span>
             </label>
-            <button
-              type="submit"
-              class="button popup__button popup__button_disabled"
-              disabled
-            >
+            <button type="submit" class="button popup__button popup__button_disabled" disabled>
               Сохранить
             </button>
           </form>
@@ -165,7 +169,6 @@
 <!--          <button type="button" class="popup__close"></button>-->
 <!--          <h3 class="popup__title"></h3>-->
 <!--          <dl class="popup__info"></dl>-->
-
 <!--          <h4 class="popup__text"></h4>-->
 <!--          <ul class="popup__list"></ul>-->
 <!--        </div>-->
@@ -178,28 +181,15 @@
       <li class="places__item card">
         <img class="card__image" src="" alt="" />
         <div class="card__control">
-          <!--<button type="button" class="card__control-button card__control-button_type_info"></button>-->
           <button type="button" class="card__control-button card__control-button_type_delete"></button>
         </div>
         <div class="card__description">
           <h2 class="card__title"></h2>
           <div class="card__likes">
             <button type="button" class="card__like-button"></button>
-            <!--<p class="card__like-count"></p>-->
           </div>
         </div>
       </li>
     </template>
-
-<!--    <template id="popup-info-definition-template">-->
-<!--      <div class="popup__info-item">-->
-<!--        <dt class="popup__info-term"></dt>-->
-<!--        <dd class="popup__info-description"></dd>-->
-<!--      </div>-->
-<!--    </template>-->
-
-<!--    <template id="popup-info-user-preview-template">-->
-<!--      <li class="popup__list-item popup__list-item_type_badge"></li>-->
-<!--    </template>-->
   </body>
 </html>
