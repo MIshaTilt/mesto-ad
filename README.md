@@ -1,5 +1,8 @@
-Стартовый набор для выполнения проектной работы Место
+Проектная работа курса «Яндекс Практикум».
 
-Для запуска приложения необходимо использовать live-server
-![изображение live-server](image.png)
-Live-server является расширением VSCode
+Ссылка на деплой: https://mishatilt.github.io/mesto-production/
+
+Запуск
+
+npm install
+npm run dev
