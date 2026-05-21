@@ -110,7 +110,7 @@ Promise.all([getUserInfo(), getCardList()])
 
 const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
-  const submitButton = evt.submitter;
+  const submitButton = evt.target.querySelector('.popup__button');
   const initialText = submitButton.textContent;
   renderLoading(true, submitButton, initialText);
 
@@ -129,7 +129,7 @@ const handleProfileFormSubmit = (evt) => {
 
 const handleAvatarFromSubmit = (evt) => {
   evt.preventDefault();
-  const submitButton = evt.submitter;
+  const submitButton = evt.target.querySelector('.popup__button');
   const initialText = submitButton.textContent;
   renderLoading(true, submitButton, initialText);
 
@@ -145,7 +145,7 @@ const handleAvatarFromSubmit = (evt) => {
 
 const handleCardFormSubmit = (evt) => {
   evt.preventDefault();
-  const submitButton = evt.submitter;
+  const submitButton = evt.target.querySelector('.popup__button');
   const initialText = submitButton.textContent;
   renderLoading(true, submitButton, initialText, 'Создание...');
 
@@ -190,8 +190,8 @@ const createPreviewItem = (text) => {
 const handleLogoClick = () => {
   getCardList()
     .then((cards) => {
-      infoList.innerHTML = "";
-      popularCardsList.innerHTML = "";
+      infoList.replaceChildren();
+      popularCardsList.replaceChildren();
 
       const uniqueUsers = new Set(cards.map((card) => card.owner._id));
       const totalUsers = uniqueUsers.size;
