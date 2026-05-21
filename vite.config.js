@@ -5,6 +5,7 @@ export default defineConfig({
   server: {
     open: true,
   },
+  base: './',
   build: {
     rollupOptions: {
       input: {
