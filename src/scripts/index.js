@@ -2,7 +2,7 @@ import {
   getUserInfo, getCardList, setUserInfo, 
   setUserAvatar, addCard, deleteCardApi, changeLikeCardStatus 
 } from "./components/api.js";
-import { createCardDOM } from "./components/card.js";
+import { createCardDOM, deleteCard, checkIsLiked, updateLikeStatus } from "./components/card.js";
 import { openModalWindow, closeModalWindow, setCloseModalWindowEventListeners } from "./components/modal.js";
 import { enableValidation, clearValidation } from "./components/validation.js";
 
@@ -69,11 +69,11 @@ const handlePreviewPicture = ({ name, link }) => {
 };
 
 const handleLikeCard = (likeButton, cardId, likeCountElement) => {
-  const isLiked = likeButton.classList.contains("card__like-button_is-active");
+  const isLiked = checkIsLiked(likeButton); 
+  
   changeLikeCardStatus(cardId, isLiked)
     .then((updatedCard) => {
-      likeButton.classList.toggle("card__like-button_is-active");
-      likeCountElement.textContent = updatedCard.likes.length;
+      updateLikeStatus(likeButton, likeCountElement, updatedCard.likes);
     })
     .catch((err) => console.error(`Ошибка при постановке лайка: ${err}`));
 };
@@ -81,7 +81,7 @@ const handleLikeCard = (likeButton, cardId, likeCountElement) => {
 const handleDeleteCard = (cardElement, cardId) => {
   deleteCardApi(cardId)
     .then(() => {
-      cardElement.remove();
+      deleteCard(cardElement); 
     })
     .catch((err) => console.error(`Ошибка при удалении карточки: ${err}`));
 };
